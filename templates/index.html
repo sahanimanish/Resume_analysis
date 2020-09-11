@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css')}}"
+      type="text/css"
+      media="all"
+    />
+    <title>Resume Analysis</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="content__heading">
+          <h1>Resume Analysis</h1>
+        </div>
+        <div class="form_container">
+          <form action="/predict" enctype = "multipart/form-data" method="POST"  >
+            <div class="form_group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="your name"
+                required
+              />
+            </div>
+            <div class="form_group">
+              <label for="mobno">Contact No</label>
+              <input
+                type="text"
+                name="mobno"
+                id="mobno"
+                placeholder="contact no"
+                required
+              />
+            </div>
+            <div class="form_group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="your email"
+                required
+              />
+            </div>
+
+            <div class="form_group">
+              <label for="edu">Education</label>
+              <select name="edu" required>
+                <option value="no">Education</option>
+                <option value="B.E">B.E.</option>
+                <option value="B.S">B.S</option>
+                <option value="M.E">M.E</option>
+                <option value="B.TECH">B.TECH</option>
+                <option value="M.TECH">M.TECH</option>
+                <option value="M.S">M.S</option>
+                <option value="XII">XII</option>
+                <option value="X">X</option>
+              </select>
+            </div>
+           <div class="form_group">
+               <label for="exp">Corporate Experience</label>
+               <input type="text" name="expe" id="exp" placeholder="years" required>
+           </div>
+            <div class="form_group">
+                <label for="resume">Upload Resume</label>
+                <input type="file" name="resume" id="resume" required>
+            </div>
+            <div class="form_group">
+                <input type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

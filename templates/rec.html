@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+      }
+      .container {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+      }
+      #result {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      #result td,
+      #result th {
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      td {
+        text-align: center;
+      }
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 15px;
+        width: 350px;
+      }
+      .tags {
+        border: 1px solid blue;
+        padding: 5px;
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 250ms ease-in-out;
+      }
+   .tags:hover{
+    font-weight: bold;
+     z-index: 10;
+     transform: scale(1.2);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.18) ;
+     
+   }
+      #result th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4950b3;
+        color: white;
+      }
+    </style>
+    <title>Recommendation</title>
+  </head>
+  <body>
+    <h1>Your Recommendation</h1>
+    <div class="container">
+      <table id="result">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Education</th>
+          <th>Experience</th>
+          <th>Skills</th>
+          <th>Best_Suited_Role</th>
+        </tr>
+        <tr>
+          <td>{{data['Name'][0]}}</td>
+          <td>{{data['Email'][0]}}</td>
+          <td>{{data['Contact_Number'][0]}}</td>
+          <td>{{data['Education'][0]}}</td>
+          <td>{{data['Experience'][0]}}</td>
+          <td class="skills">
+            {%for i in data['Skills'][0].split(',')[:-1]%}
+            <span class="tags">{{i}}</span>
+            {%endfor%}
+          </td>
+          <td><strong>{{data['Best_Suited_Role'][0]}}</strong></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
